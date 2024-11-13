@@ -1,40 +1,40 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "device_info.h"
-#include "device_operations.h"
+// #include "device_operations.h"
+#include <stdio.h>
 #include <strings.h>
 
 void show_help() {
-    printf("Usage: [option]\n");
-    printf("Options:\n");
-    printf("  -u         List connected USB devices\n");
-    printf("  -a         List all connected peripherals (USB, Thunderbolt, etc.)\n");
-    printf("  -h         Show this help message\n");
+  printf("Usage: [option]\n");
+  printf("Options:\n");
+  printf("  -u         List Peripherals\n");
+  printf(
+      "  -a         List all connected peripherals (USB, Thunderbolt, etc.)\n");
+  printf("  -h         Show this help message\n");
 }
 
 int main(int argc, char *argv[]) {
-    if (argc != 2) {
-        printf("Invalid usage. Please provide a single option.\n");
-        show_help();
-        return 1;
-    }
+  if (argc != 2) {
+    printf("Invalid usage. Please provide a single option.\n");
+    show_help();
+    return 1;
+  }
 
-    if (strcmp(argv[1], "-u") == 0) {
-        list_connected_devices();
-    } else if (strcmp(argv[1], "-a") == 0) {
-        // TODO: implement device info function
-        return 0;
-    } else if (strcmp(argv[1], "-h") == 0) {
-        show_help();
-    } else {
-        printf("Unknown option: %s\n", argv[1]);
-        show_help();
-        return 1;
-    }
-
+  if (strcmp(argv[1], "-u") == 0) {
+    list_connected_devices();
+  } else if (strcmp(argv[1], "-a") == 0) {
+    // TODO: implement device info function
     return 0;
+  } else if (strcmp(argv[1], "-h") == 0) {
+    show_help();
+  } else {
+    printf("Unknown option: %s\n", argv[1]);
+    show_help();
+    return 1;
+  }
+
+  return 0;
 }
-//
+
 // void display_menu() {
 //     printf("\nPeripheral Management System\n");
 //     printf("1. List connected devices\n");
